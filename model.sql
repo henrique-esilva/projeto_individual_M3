@@ -4,8 +4,8 @@ use resiliadata;
 -- empresas parceiras
 create table empresasparceiras(
 	id_empresaparceira int primary key auto_increment,
-    nome varchar(128) not null,
-    cnpj varchar(64) not null
+	nome varchar(128) not null,
+	cnpj varchar(64) not null
 );
 
 -- areas
@@ -21,23 +21,23 @@ drop table empresasparceiras_tecnologias;
 -- tecnologias, especificando a área
 create table tecnologias(
 	id_tecnologia int primary key auto_increment,
-    nome varchar(128) not null,
-    id_area int not null
+	nome varchar(128) not null,
+	id_area int not null
 );
 
 -- empresas_tecnologias
 create table empresasparceiras_tecnologias(
 	id_empresaparceira_tecnologia int primary key auto_increment,
-    id_empresaparceira int,
-    id_tecnologia int
+	id_empresaparceira int,
+	id_tecnologia int
 );
 
 -- colaboradores
 create table colaboradores(
 	id_colaborador int primary key auto_increment,
-    nome varchar(128),
-    cpf varchar(11),
-    id_empresaparceira int not null
+	nome varchar(128),
+	cpf varchar(11),
+	id_empresaparceira int not null
 );
 
 -- chaves estrangeiras

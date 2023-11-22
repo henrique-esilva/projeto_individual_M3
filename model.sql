@@ -67,10 +67,6 @@ insert into tecnologias (id_tecnologia, nome, id_area) values
 (null, 'dropbox', 4),
 (null, 'git', 3);
 
--- SET
--- last insert id
-
-select * from empresasparceiras;
 insert into empresasparceiras_tecnologias (id_empresaparceira_tecnologia, id_empresaparceira, id_tecnologia) values
 (null, 1, 1),
 (null, 1, 4),

@@ -1,47 +1,46 @@
-CREATE DATABASE alpha;
-USE alpha;
+create database resiliadata;
+use resiliadata;
 
-CREATE TABLE alunos(
-id_aluno INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-matricula VARCHAR(20) NOT NULL,
-nome VARCHAR(100) NOT NULL,
-nascimento DATE NOT NULL,
-genero VARCHAR(20) NOT NULL,
-cpf VARCHAR(14) NOT NULL,
-endereco VARCHAR(150) NOT NULL,
-email VARCHAR(100) NOT NULL,
-telefone VARCHAR(17) NOT NULL,
-escolaridade VARCHAR(30) NOT NULL
+-- empresas parceiras
+create table empresasparceiras(
+	id_empresaparceira int primary key auto_increment,
+    nome varchar(128) not null,
+    cnpj varchar(64) not null
 );
 
-CREATE TABLE facilitadores(
-id_facilitador INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-nome VARCHAR(100) NOT NULL,
-cpf VARCHAR(14) NOT NULL,
-endereco VARCHAR(150) NOT NULL,
-nascimento DATE NOT NULL,
-email VARCHAR(100) NOT NULL,
-telefone VARCHAR(17) NOT NULL,
-especialidade VARCHAR(20)
+-- areas
+create table areas(
+	id_area int primary key auto_increment,
+	nome varchar(16)
 );
 
-CREATE TABLE turmas(
-id_turma INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-sala VARCHAR(10) NOT NULL,
-especialidade VARCHAR(20) NOT NULL,
-nivel VARCHAR(20) NOT NULL,
-inicio DATE NOT NULL,
-final DATE NOT NULL,
-periodo VARCHAR(12) NOT NULL,
-id_facilitador INT
+-- tecnologias, especificando a área
+create table tecnologias(
+	id_tecnologia int primary key auto_increment,
+    nome varchar(128) not null,
+    id_area int not null
 );
-ALTER TABLE turmas ADD CONSTRAINT fk_facilitador
-FOREIGN KEY (id_facilitador) REFERENCES facilitadores (id_facilidador);
 
-CREATE TABLE alunos_turmas(
-id_aluno INT,
-id_turma INT,
-PRIMARY KEY (id_aluno, id_turma),
-FOREIGN KEY (id_aluno) REFERENCES alunos(id_aluno),
-FOREIGN KEY (id_turma) REFERENCES turmas(id_turma)
+-- empresas_tecnologias
+create table empresas_tecnologias(
+	id_empresasparceiras_tecnologias int not null primary key auto_increment,
+    id_empresaparceira int,
+    id_tecnologia int
 );
+
+-- colaboradores
+create table colaboradores(
+	id_colaborador int primary key auto_increment,
+    nome varchar(128),
+    cpf varchar(11),
+    id_empresaparceira int not null
+);
+
+-- chaves estrangeiras
+alter table colaboradores add constraint fk_colaboradores_empresasparceiras foreign key (id_empresaparceira) references empresasparceiras(id_empresaparceira);
+
+alter table tecnologias add constraint fk_tecnologias_areas foreign key (id_area) references areas(id_area);
+
+alter table empresas_tecnologias
+add constraint fk_empresas_tecnologias__empresasparceiras foreign key (id_empresaparceira) references empresasparceiras(id_empresaparceira),
+add constraint fk_empresas_tecnologias__tecnologias foreign key (id_tecnologia) references tecnologias(id_tecnologia);

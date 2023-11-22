@@ -11,8 +11,12 @@ create table empresasparceiras(
 -- areas
 create table areas(
 	id_area int primary key auto_increment,
-	nome varchar(16)
+	nome varchar(128)
 );
+
+drop table areas;
+drop table tecnologias;
+drop table empresasparceiras_tecnologias;
 
 -- tecnologias, especificando a área
 create table tecnologias(
@@ -22,8 +26,8 @@ create table tecnologias(
 );
 
 -- empresas_tecnologias
-create table empresas_tecnologias(
-	id_empresasparceiras_tecnologias int not null primary key auto_increment,
+create table empresasparceiras_tecnologias(
+	id_empresaparceira_tecnologia int primary key auto_increment,
     id_empresaparceira int,
     id_tecnologia int
 );
@@ -39,12 +43,59 @@ create table colaboradores(
 -- chaves estrangeiras
 alter table colaboradores add constraint fk_colaboradores_empresasparceiras foreign key (id_empresaparceira) references empresasparceiras(id_empresaparceira);
 alter table tecnologias add constraint fk_tecnologias_areas foreign key (id_area) references areas(id_area);
-alter table empresas_tecnologias
-add constraint fk_empresas_tecnologias__empresasparceiras foreign key (id_empresaparceira) references empresasparceiras(id_empresaparceira),
-add constraint fk_empresas_tecnologias__tecnologias foreign key (id_tecnologia) references tecnologias(id_tecnologia);
+alter table empresasparceiras_tecnologias
+add constraint fk_empresasparceiras_tecnologias__empresasparceiras foreign key (id_empresaparceira) references empresasparceiras(id_empresaparceira),
+add constraint fk_empresasparceiras_tecnologias__tecnologias foreign key (id_tecnologia) references tecnologias(id_tecnologia);
 
 -- inserts
-insert into empresasparceiras (id_empresaparceira, nome, cnpj) values (null, );
+insert into empresasparceiras (id_empresaparceira, nome, cnpj) values
+(null, 'microsoft', '00000001'),
+(null,    'openai', '00000002'),
+(null,     'apple', '00000003'),
+(null,    'google', '00000004');
+
+insert into areas (id_area, nome) values
+(null, 'cibersegurança'),
+(null, 'computação em núvem'),
+(null, 'versionamento'),
+(null, 'armazenamento em núvem');
+
+insert into tecnologias (id_tecnologia, nome, id_area) values
+(null, 'azure', 2),
+(null, 'google drive', 4),
+(null, 'onedrive', 4),
+(null, 'dropbox', 4),
+(null, 'git', 3);
+
+-- SET
+-- last insert id
+
+select * from empresasparceiras;
+insert into empresasparceiras_tecnologias (id_empresaparceira_tecnologia, id_empresaparceira, id_tecnologia) values
+(null, 1, 1),
+(null, 1, 4),
+(null, 1, 3),
+(null, 1, 5),
+
+(null, 4, 5),
+(null, 4, 1),
+
+(null, 5, 5),
+(null, 5, 2),
+(null, 5, 1),
+
+(null, 6, 5),
+(null, 6, 2),
+(null, 6, 1);
+
+-- pesquisas
+
+-- descobrindo a relação entre empresas e tecnologias
+select empresasparceiras.nome, tecnologias.nome from
+empresasparceiras inner join empresasparceiras_tecnologias inner join tecnologias
+where empresasparceiras.id_empresaparceira = empresasparceiras_tecnologias.id_empresaparceira
+and empresasparceiras_tecnologias.id_tecnologia = tecnologias.id_tecnologia;
+
 
 
 

@@ -38,9 +38,14 @@ create table colaboradores(
 
 -- chaves estrangeiras
 alter table colaboradores add constraint fk_colaboradores_empresasparceiras foreign key (id_empresaparceira) references empresasparceiras(id_empresaparceira);
-
 alter table tecnologias add constraint fk_tecnologias_areas foreign key (id_area) references areas(id_area);
-
 alter table empresas_tecnologias
 add constraint fk_empresas_tecnologias__empresasparceiras foreign key (id_empresaparceira) references empresasparceiras(id_empresaparceira),
 add constraint fk_empresas_tecnologias__tecnologias foreign key (id_tecnologia) references tecnologias(id_tecnologia);
+
+-- inserts
+insert into empresasparceiras (id_empresaparceira, nome, cnpj) values (null, );
+
+
+
+

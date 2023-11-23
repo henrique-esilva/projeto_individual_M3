@@ -8,7 +8,7 @@ O banco deve armazenar:
 * colaboradores
 * tecnologias usadas e quais empresas as usam
 
-Parte da proposta consiste em responder algumas questões para a modelagem do banco de dados:
+Parte da proposta consiste em:
 * definir as entidades necessárias
 * definir qualidade e tipagem dos principais campos
 * definir os relacionamentos entre as entidades

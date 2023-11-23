@@ -12,3 +12,4 @@ Parte da proposta consiste em:
 * definir as entidades necessárias
 * definir qualidade e tipagem dos principais campos
 * definir os relacionamentos entre as entidades
+* simular dois registros para cada entidade

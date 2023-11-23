@@ -5,7 +5,7 @@
 Desenvolver um banco de dados que será usado pelo sistema Resilidata.
 
 O banco deve armazenar:
-* quais são as empresas parceiras
+* empresas parceiras
 * colaboradores
 * tecnologias usadas e quais empresas as usam
 
@@ -14,3 +14,12 @@ Parte da proposta consiste em:
 * definir qualidade e tipagem dos principais campos
 * definir os relacionamentos entre as entidades
 * simular dois registros para cada entidade
+
+* 1. Quais são as entidades necessárias?
+Para este modelo serão definidas as entidades: colaboradores, empresas_parceiras, tecnologias.
+Uma entidade promovida: empresas_parceiras__tecnologias.
+* 2. Quais são os principais campos e seus respectivos tipos?
+Abaixo um relacionamento entre os campos de cada tabela e seus respectivos tipos.
+
+* 3. Como essas entidades estão relacionadas?
+* 4. Simule 2 registros para cada entidade.

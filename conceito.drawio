@@ -1,0 +1,88 @@
+<mxfile host="app.diagrams.net" modified="2023-11-29T19:23:38.066Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0" etag="zn-yT_aMw3tQiJvGnPs2" version="22.1.5" type="device">
+  <diagram name="Página-1" id="DPRHt69qXv7YlMpt7jG5">
+    <mxGraphModel dx="830" dy="979" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="4tULTpeQ6Dmpc28uylTT-102" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="4tULTpeQ6Dmpc28uylTT-88" target="4tULTpeQ6Dmpc28uylTT-99">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4tULTpeQ6Dmpc28uylTT-88" value="empresaparceira" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="200" y="360" width="130" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="4tULTpeQ6Dmpc28uylTT-101" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="4tULTpeQ6Dmpc28uylTT-89" target="4tULTpeQ6Dmpc28uylTT-99">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4tULTpeQ6Dmpc28uylTT-89" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;&lt;b&gt;tecnologia&lt;/b&gt;&lt;/span&gt;" style="whiteSpace=wrap;html=1;align=center;shape=ext;margin=3;double=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="360" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="4tULTpeQ6Dmpc28uylTT-91" value="colaborador" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="160" y="130" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="4tULTpeQ6Dmpc28uylTT-92" value="area" style="shape=label;margin=3;double=1;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="680" y="360" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="4tULTpeQ6Dmpc28uylTT-97" value="&lt;span style=&quot;border-bottom: 1px dotted&quot;&gt;id_area&lt;br&gt;&lt;/span&gt;" style="whiteSpace=wrap;html=1;align=center;shape=ellipse;margin=3;perimeter=ellipsePerimeter;" vertex="1" parent="1">
+          <mxGeometry x="510" y="260" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="4tULTpeQ6Dmpc28uylTT-99" value="empresaparceira_tecnologia" style="shape=rhombus;double=1;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="320" y="400" width="200" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="4tULTpeQ6Dmpc28uylTT-109" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmandOne;rounded=0;" edge="1" parent="1" source="4tULTpeQ6Dmpc28uylTT-89" target="4tULTpeQ6Dmpc28uylTT-92">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="710" y="370" as="sourcePoint" />
+            <mxPoint x="760" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4tULTpeQ6Dmpc28uylTT-110" value="nome" style="ellipse;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="510" y="310" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="4tULTpeQ6Dmpc28uylTT-111" value="&lt;span style=&quot;border-bottom: 1px dotted&quot;&gt;id_tecnologia&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="250" y="530" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="4tULTpeQ6Dmpc28uylTT-112" value="&lt;span style=&quot;border-bottom: 1px dotted&quot;&gt;id_empresaparceira&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="250" y="575" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="4tULTpeQ6Dmpc28uylTT-118" value="id_empresaparceira" style="whiteSpace=wrap;html=1;align=center;shape=ellipse;perimeter=ellipsePerimeter;fontStyle=4;" vertex="1" parent="1">
+          <mxGeometry x="50" y="310" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="4tULTpeQ6Dmpc28uylTT-120" value="nome" style="ellipse;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="680" y="310" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="4tULTpeQ6Dmpc28uylTT-121" value="id_tecnologia" style="ellipse;whiteSpace=wrap;html=1;align=center;fontStyle=4;" vertex="1" parent="1">
+          <mxGeometry x="510" y="210" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="4tULTpeQ6Dmpc28uylTT-122" value="id_area" style="ellipse;whiteSpace=wrap;html=1;align=center;fontStyle=4;" vertex="1" parent="1">
+          <mxGeometry x="680" y="260" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="4tULTpeQ6Dmpc28uylTT-123" value="nome" style="ellipse;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="90" y="360" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="4tULTpeQ6Dmpc28uylTT-124" value="cnpj" style="ellipse;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="90" y="410" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="4tULTpeQ6Dmpc28uylTT-125" value="&lt;span style=&quot;border-bottom: 1px dotted&quot;&gt;id_empresaparceira&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="20" y="180" width="130" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="4tULTpeQ6Dmpc28uylTT-126" value="id_colaborador" style="ellipse;whiteSpace=wrap;html=1;align=center;fontStyle=4;" vertex="1" parent="1">
+          <mxGeometry x="50" y="30" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="4tULTpeQ6Dmpc28uylTT-127" value="nome" style="ellipse;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="80" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="4tULTpeQ6Dmpc28uylTT-128" value="cpf" style="ellipse;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="130" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="4tULTpeQ6Dmpc28uylTT-130" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;rounded=0;" edge="1" parent="1" source="4tULTpeQ6Dmpc28uylTT-88" target="4tULTpeQ6Dmpc28uylTT-91">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="270" y="280" as="sourcePoint" />
+            <mxPoint x="410" y="190" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="290" y="260" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

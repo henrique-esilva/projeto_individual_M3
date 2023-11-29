@@ -1,34 +1,34 @@
 create database resiliadata;
 use resiliadata;
 
--- entidades: empresas_parceiras, tecnologias, colaboradores
+-- entidades: empresas_parceiras, tecnologia, colaboradores
 
 -- empresas parceiras
-create table empresasparceiras(
+create table empresaparceira(
 	id_empresaparceira int primary key auto_increment,
 	nome varchar(128) not null,
 	cnpj varchar(64) not null
 );
 
--- areas
-create table areas(
+-- area
+create table area(
 	id_area int primary key auto_increment,
 	nome varchar(128)
 );
 
-drop table areas;
-drop table tecnologias;
-drop table empresasparceiras_tecnologias;
+drop table area;
+drop table tecnologia;
+drop table empresaparceira_tecnologia;
 
--- tecnologias, especificando a área
-create table tecnologias(
+-- tecnologia, especificando a área
+create table tecnologia(
 	id_tecnologia int primary key auto_increment,
 	nome varchar(128) not null,
 	id_area int not null
 );
 
--- empresasparceiras_tecnologias
-create table empresasparceiras_tecnologias(
+-- empresaparceira_tecnologia
+create table empresaparceira_tecnologia(
 	id_empresaparceira_tecnologia int primary key auto_increment,
 	id_empresaparceira int not null,
 	id_tecnologia int not null
@@ -44,34 +44,34 @@ create table colaboradores(
 
 
 -- chaves estrangeiras
-alter table colaboradores add constraint fk_colaboradores_empresasparceiras foreign key (id_empresaparceira) references empresasparceiras(id_empresaparceira);
-alter table tecnologias add constraint fk_tecnologias_areas foreign key (id_area) references areas(id_area);
+alter table colaboradores add constraint fk_colaboradores_empresaparceira foreign key (id_empresaparceira) references empresaparceira(id_empresaparceira);
+alter table tecnologia add constraint fk_tecnologia_area foreign key (id_area) references area(id_area);
 
-alter table empresasparceiras_tecnologias
-add constraint fk_empresasparceiras_tecnologias__empresasparceiras foreign key (id_empresaparceira) references empresasparceiras(id_empresaparceira),
-add constraint fk_empresasparceiras_tecnologias__tecnologias foreign key (id_tecnologia) references tecnologias(id_tecnologia);
+alter table empresaparceira_tecnologia
+add constraint fk_empresaparceira_tecnologia__empresaparceira foreign key (id_empresaparceira) references empresaparceira(id_empresaparceira),
+add constraint fk_empresaparceira_tecnologia__tecnologia foreign key (id_tecnologia) references tecnologia(id_tecnologia);
 
 -- inserts
-insert into empresasparceiras (id_empresaparceira, nome, cnpj) values
+insert into empresaparceira (id_empresaparceira, nome, cnpj) values
 (null, 'microsoft', '00000001'),
 (null,    'openai', '00000002'),
 (null,     'apple', '00000003'),
 (null,    'google', '00000004');
 
-insert into areas (id_area, nome) values
+insert into area (id_area, nome) values
 (null, 'cibersegurança'),
 (null, 'computação em núvem'),
 (null, 'versionamento'),
 (null, 'armazenamento em núvem');
 
-insert into tecnologias (id_tecnologia, nome, id_area) values
+insert into tecnologia (id_tecnologia, nome, id_area) values
 (null, 'azure', 2),
 (null, 'google drive', 4),
 (null, 'onedrive', 4),
 (null, 'dropbox', 4),
 (null, 'git', 3);
 
-insert into empresasparceiras_tecnologias (id_empresaparceira_tecnologia, id_empresaparceira, id_tecnologia) values
+insert into empresaparceira_tecnologia (id_empresaparceira_tecnologia, id_empresaparceira, id_tecnologia) values
 (null, 1, 1),
 (null, 1, 4),
 (null, 1, 3),
@@ -90,10 +90,10 @@ insert into empresasparceiras_tecnologias (id_empresaparceira_tecnologia, id_emp
 
 -- pesquisas
 
--- descobrindo a relação entre empresas e tecnologias
-select empresasparceiras.nome, tecnologias.nome from
-empresasparceiras inner join empresasparceiras_tecnologias inner join tecnologias
-on empresasparceiras.id_empresaparceira = empresasparceiras_tecnologias.id_empresaparceira and empresasparceiras_tecnologias.id_tecnologia = tecnologias.id_tecnologia;
+-- descobrindo a relação entre empresas e tecnologia
+select empresaparceira.nome, tecnologia.nome from
+empresaparceira inner join empresaparceira_tecnologia inner join tecnologia
+on empresaparceira.id_empresaparceira = empresaparceira_tecnologia.id_empresaparceira and empresaparceira_tecnologia.id_tecnologia = tecnologia.id_tecnologia;
 
 
 

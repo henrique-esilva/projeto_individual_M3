@@ -15,9 +15,9 @@ Parte da proposta consiste em:
 * definir os relacionamentos entre as entidades
 * simular dois registros para cada entidade
 
-* 1. Quais são as entidades necessárias?
-Para este modelo serão definidas as entidades: colaborador, empresa_parceira, tecnologia, area.
-Uma entidade promovida: empresaparceira__tecnologia.
+* 1. Quais são as entidades necessárias? 
+  Para este modelo serão definidas as entidades: colaborador, empresa_parceira, tecnologia, area. 
+  Uma entidade promovida: empresaparceira__tecnologia.
 
 * 2. Quais são os principais campos e seus respectivos tipos?
 

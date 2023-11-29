@@ -1,6 +1,8 @@
 create database resiliadata;
 use resiliadata;
 
+-- entidades: empresas_parceiras, tecnologias, colaboradores
+
 -- empresas parceiras
 create table empresasparceiras(
 	id_empresaparceira int primary key auto_increment,
@@ -25,11 +27,11 @@ create table tecnologias(
 	id_area int not null
 );
 
--- empresas_tecnologias
+-- empresasparceiras_tecnologias
 create table empresasparceiras_tecnologias(
 	id_empresaparceira_tecnologia int primary key auto_increment,
-	id_empresaparceira int,
-	id_tecnologia int
+	id_empresaparceira int not null,
+	id_tecnologia int not null
 );
 
 -- colaboradores
@@ -40,9 +42,11 @@ create table colaboradores(
 	id_empresaparceira int not null
 );
 
+
 -- chaves estrangeiras
 alter table colaboradores add constraint fk_colaboradores_empresasparceiras foreign key (id_empresaparceira) references empresasparceiras(id_empresaparceira);
 alter table tecnologias add constraint fk_tecnologias_areas foreign key (id_area) references areas(id_area);
+
 alter table empresasparceiras_tecnologias
 add constraint fk_empresasparceiras_tecnologias__empresasparceiras foreign key (id_empresaparceira) references empresasparceiras(id_empresaparceira),
 add constraint fk_empresasparceiras_tecnologias__tecnologias foreign key (id_tecnologia) references tecnologias(id_tecnologia);
@@ -89,8 +93,7 @@ insert into empresasparceiras_tecnologias (id_empresaparceira_tecnologia, id_emp
 -- descobrindo a relação entre empresas e tecnologias
 select empresasparceiras.nome, tecnologias.nome from
 empresasparceiras inner join empresasparceiras_tecnologias inner join tecnologias
-where empresasparceiras.id_empresaparceira = empresasparceiras_tecnologias.id_empresaparceira
-and empresasparceiras_tecnologias.id_tecnologia = tecnologias.id_tecnologia;
+on empresasparceiras.id_empresaparceira = empresasparceiras_tecnologias.id_empresaparceira and empresasparceiras_tecnologias.id_tecnologia = tecnologias.id_tecnologia;
 
 
 

@@ -1,7 +1,9 @@
 create database resiliadata;
 use resiliadata;
 
--- entidades: empresas_parceiras, tecnologia, colaborador
+-- entidades: empresas_parceiras, area, colaborador
+-- entidades fracas: tecnologia
+-- relacionamento promovido: empresaparceira_tecnologia
 
 -- empresas parceiras
 create table empresaparceira(

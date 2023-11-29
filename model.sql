@@ -1,7 +1,7 @@
 create database resiliadata;
 use resiliadata;
 
--- entidades: empresas_parceiras, tecnologia, colaboradores
+-- entidades: empresas_parceiras, tecnologia, colaborador
 
 -- empresas parceiras
 create table empresaparceira(
@@ -34,8 +34,8 @@ create table empresaparceira_tecnologia(
 	id_tecnologia int not null
 );
 
--- colaboradores
-create table colaboradores(
+-- colaborador
+create table colaborador(
 	id_colaborador int primary key auto_increment,
 	nome varchar(128),
 	cpf varchar(11),
@@ -44,7 +44,7 @@ create table colaboradores(
 
 
 -- chaves estrangeiras
-alter table colaboradores add constraint fk_colaboradores_empresaparceira foreign key (id_empresaparceira) references empresaparceira(id_empresaparceira);
+alter table colaborador add constraint fk_colaborador_empresaparceira foreign key (id_empresaparceira) references empresaparceira(id_empresaparceira);
 alter table tecnologia add constraint fk_tecnologia_area foreign key (id_area) references area(id_area);
 
 alter table empresaparceira_tecnologia

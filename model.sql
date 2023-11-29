@@ -29,7 +29,7 @@ create table tecnologia(
 
 -- empresaparceira_tecnologia
 create table empresaparceira_tecnologia(
-	id_empresaparceira_tecnologia int primary key auto_increment,
+	-- id_empresaparceira_tecnologia int primary key auto_increment,
 	id_empresaparceira int not null,
 	id_tecnologia int not null
 );

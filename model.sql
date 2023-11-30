@@ -18,10 +18,6 @@ create table area(
 	nome varchar(128)
 );
 
-drop table area;
-drop table tecnologia;
-drop table empresaparceira_tecnologia;
-
 -- tecnologia, especificando a área
 create table tecnologia(
 	id_tecnologia int primary key auto_increment,

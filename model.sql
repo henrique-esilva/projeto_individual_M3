@@ -51,40 +51,48 @@ add constraint fk_empresaparceira_tecnologia__tecnologia foreign key (id_tecnolo
 
 -- inserts
 insert into empresaparceira (id_empresaparceira, nome, cnpj) values
-(null, 'microsoft', '00000001'),
-(null,    'openai', '00000002'),
-(null,     'apple', '00000003'),
-(null,    'google', '00000004');
+	(null, 'microsoft', '00000001'),
+	(null,    'openai', '00000002'),
+	(null,     'apple', '00000003'),
+	(null,    'google', '00000004');
 
 insert into area (id_area, nome) values
-(null, 'cibersegurança'),
-(null, 'computação em núvem'),
-(null, 'versionamento'),
-(null, 'armazenamento em núvem');
+	(null, 'cibersegurança'),
+	(null, 'computação em núvem'),
+	(null, 'versionamento'),
+	(null, 'armazenamento em núvem');
 
 insert into tecnologia (id_tecnologia, nome, id_area) values
-(null, 'azure', 2),
-(null, 'google drive', 4),
-(null, 'onedrive', 4),
-(null, 'dropbox', 4),
-(null, 'git', 3);
+	(null, 'azure', 2),
+	(null, 'google drive', 4),
+	(null, 'onedrive', 4),
+	(null, 'dropbox', 4),
+	(null, 'git', 3);
 
 insert into empresaparceira_tecnologia (id_empresaparceira_tecnologia, id_empresaparceira, id_tecnologia) values
-(null, 1, 1),
-(null, 1, 4),
-(null, 1, 3),
-(null, 1, 5),
+	(null, 1, 1),
+	(null, 1, 4),
+	(null, 1, 3),
+	(null, 1, 5),
+	
+	(null, 4, 5),
+	(null, 4, 1),
+	
+	(null, 5, 5),
+	(null, 5, 2),
+	(null, 5, 1),
+	
+	(null, 6, 5),
+	(null, 6, 2),
+	(null, 6, 1);
 
-(null, 4, 5),
-(null, 4, 1),
-
-(null, 5, 5),
-(null, 5, 2),
-(null, 5, 1),
-
-(null, 6, 5),
-(null, 6, 2),
-(null, 6, 1);
+insert into colaborador (id_colaborador, nome, cpf, id_empresaparceira) values
+	(null, 'Alex',     '00000000001', 1),
+	(null, 'Felix',    '00000000002', 1),
+	(null, 'Débora',   '00000000003', 2),
+	(null, 'Tom',      '00000000004', 2),
+	(null, 'Anderson', '00000000005', 3),
+	(null, 'Cláudia',  '00000000006', 4);
 
 -- pesquisas
 

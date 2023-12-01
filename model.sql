@@ -49,6 +49,7 @@ alter table empresaparceira_tecnologia
 add constraint fk_empresaparceira_tecnologia__empresaparceira foreign key (id_empresaparceira) references empresaparceira(id_empresaparceira),
 add constraint fk_empresaparceira_tecnologia__tecnologia foreign key (id_tecnologia) references tecnologia(id_tecnologia);
 
+
 -- inserts
 insert into empresaparceira (id_empresaparceira, nome, cnpj) values
 	(null, 'microsoft', '00000001'),
@@ -94,6 +95,24 @@ insert into colaborador (id_colaborador, nome, cpf, id_empresaparceira) values
 	(null, 'Anderson', '00000000005', 3),
 	(null, 'Cláudia',  '00000000006', 4);
 
+
+-- funções úteis
+
+delimiter //
+create function formata_cpf (cpf varchar)
+returns varchar
+begin
+	declare cpf_formatado;
+	set cpf_formatado = concat(
+		substring(cpf,  1, 3), '.',
+		substring(cpf,  4, 3), '.',
+		substring(cpf,  7, 3), '-',
+		substring(cpf, 10, 2)
+	);
+	return cpf_formatado;
+end //
+delimiter ;
+
 -- pesquisas
 
 -- descobrindo a relação entre empresas e tecnologia
@@ -101,6 +120,13 @@ select empresaparceira.nome, tecnologia.nome from
 empresaparceira inner join empresaparceira_tecnologia inner join tecnologia
 on empresaparceira.id_empresaparceira = empresaparceira_tecnologia.id_empresaparceira and empresaparceira_tecnologia.id_tecnologia = tecnologia.id_tecnologia;
 
+-- exibe a relação de nomes e cpf's, com o cpf no formato brasileiro
+select nome, concat(
+	substring(cpf, 1, 3), '.',
+	substring(cpf, 4, 3), '.',
+	substring(cpf, 7, 3), '-',
+	substring(cpf, 10, 2)) as cpf_formatado
+from colaboradores;
 
 
 

@@ -115,19 +115,15 @@ delimiter ;
 
 -- pesquisas
 
--- descobrindo a relação entre empresas e tecnologia
-select empresaparceira.nome, tecnologia.nome from
-empresaparceira inner join empresaparceira_tecnologia inner join tecnologia
-on empresaparceira.id_empresaparceira = empresaparceira_tecnologia.id_empresaparceira and empresaparceira_tecnologia.id_tecnologia = tecnologia.id_tecnologia;
+-- descobrindo a relação entre empresas e tecnologias
+select empresaparceira.nome as empresa, tecnologia.nome as tecnologia from
+empresaparceira
+inner join empresaparceira_tecnologia on empresaparceira.id_empresaparceira = empresaparceira_tecnologia.id_empresaparceira
+inner join tecnologia on empresaparceira_tecnologia.id_tecnologia = tecnologia.id_tecnologia;
 
 -- exibe a relação de nomes e cpf's, com o cpf no formato brasileiro
-select nome, concat(
-	substring(cpf, 1, 3), '.',
-	substring(cpf, 4, 3), '.',
-	substring(cpf, 7, 3), '-',
-	substring(cpf, 10, 2)) as cpf_formatado
-from colaboradores;
-
+select nome, formata_cpf(cpf) as cpf
+from colaborador;
 
 
 

@@ -17,16 +17,25 @@ Parte da proposta consiste em:
 
 1. Quais são as entidades necessárias?
 
-Para este modelo serão definidas as entidades: colaborador, empresa_parceira, tecnologia e area. 
+Para este modelo serão definidas as entidades: colaborador, empresa_parceira, tecnologia e area.  
 Será definida uma entidade promovida: empresaparceira_tecnologia.
 
 3. Quais são os principais campos e seus respectivos tipos?
+   Para evitar repetições, segue-se uma relação entre as tabelas e seus campos e tipos correspondentes:
+   FK - chave estrangeira
+   PK - chave primária  
+   `area`: id_area int PK, nome varchar  
+   `tecnologia`: id_tecnologia int PK, nome varchar, id_area int FK  
+   `empresapareceira`: id_empresaparceira int PK, nome varchar, cnpj   
+   `colaborador`: id_colaborador nome cpf id_empresaparceira  
+   `empresaparceira_tecnologia`: id_empresaparceira id_tecnologia   
 
-4. Como essas entidades estão relacionadas?
+5. Como essas entidades estão relacionadas?  
+   `tecnologia` depende de `area` para existir.  
+   `colaborador` depende de `empresaparceira` para existir.  
+   `empresaparceira` e `area` existem independentemente de outras entidades.  
+   1 `empresaparceira` para muitos `colaborador`  
+   1 `area` para muitos `tecnologia`  
+   muitos `empresaparceira` para muitos `tecnologia`
 
-A entidade `tecnologia` depende da entidade `area` para existir.
-`colaborador` depende de `empresaparceira` para existir.
-`empresaparceira` e `area` existem independentemente de outras entidades.
-Cada empresa parceira pode se relacionar com muitos colaboradores, enquanto cada colaborador se associa a apenas uma empresa parceira.
-
-5. Simule 2 registros para cada entidade.
+6. Simule 2 registros para cada entidade.

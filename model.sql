@@ -125,5 +125,6 @@ inner join tecnologia on empresaparceira_tecnologia.id_tecnologia = tecnologia.i
 select nome, formata_cpf(cpf) as cpf
 from colaborador;
 
-
+-- exibe as tecnologias e suas áreas correspondentes
+select tecnologia.nome as tecnologia, area.nome as area from tecnologia inner join area on tecnologia.id_area=area.id_area order by area;
 

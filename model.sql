@@ -27,7 +27,7 @@ create table tecnologia(
 
 -- empresaparceira_tecnologia
 create table empresaparceira_tecnologia(
-	-- id_empresaparceira_tecnologia int primary key auto_increment,
+	id_empresaparceira_tecnologia int primary key auto_increment,
 	id_empresaparceira int not null,
 	id_tecnologia int not null
 );
@@ -56,6 +56,8 @@ insert into empresaparceira (id_empresaparceira, nome, cnpj) values
 	(null,    'openai', '00000002'),
 	(null,     'apple', '00000003'),
 	(null,    'google', '00000004');
+    
+select id_empresaparceira from empresaparceira;
 
 insert into area (id_area, nome) values
 	(null, 'cibersegurança'),
@@ -76,16 +78,16 @@ insert into empresaparceira_tecnologia (id_empresaparceira_tecnologia, id_empres
 	(null, 1, 3),
 	(null, 1, 5),
 	
+	(null, 2, 5),
+	(null, 2, 1),
+	
+	(null, 3, 5),
+	(null, 3, 2),
+	(null, 3, 1),
+	
 	(null, 4, 5),
-	(null, 4, 1),
-	
-	(null, 5, 5),
-	(null, 5, 2),
-	(null, 5, 1),
-	
-	(null, 6, 5),
-	(null, 6, 2),
-	(null, 6, 1);
+	(null, 4, 2),
+	(null, 4, 1);
 
 insert into colaborador (id_colaborador, nome, cpf, id_empresaparceira) values
 	(null, 'Alex',     '00000000001', 1),
@@ -99,10 +101,10 @@ insert into colaborador (id_colaborador, nome, cpf, id_empresaparceira) values
 -- funções úteis
 
 delimiter //
-create function formata_cpf (cpf varchar)
-returns varchar
+create function formata_cpf (cpf varchar(11) )
+returns varchar(14)
 begin
-	declare cpf_formatado;
+	declare cpf_formatado varchar(14);
 	set cpf_formatado = concat(
 		substring(cpf,  1, 3), '.',
 		substring(cpf,  4, 3), '.',
@@ -127,4 +129,11 @@ from colaborador;
 
 -- exibe as tecnologias e suas áreas correspondentes
 select tecnologia.nome as tecnologia, area.nome as area from tecnologia inner join area on tecnologia.id_area=area.id_area order by area;
+
+-- tecnologias mais usadas
+select tecnologia.nome as tecnologia, count(empresaparceira.id_empresaparceira) as 'N de empresas' from empresaparceira_tecnologia
+inner join tecnologia on tecnologia.id_tecnologia=empresaparceira_tecnologia.id_tecnologia
+inner join empresaparceira on empresaparceira_tecnologia.id_empresaparceira=empresaparceira.id_empresaparceira group by tecnologia;
+
+
 
